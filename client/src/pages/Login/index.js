@@ -50,7 +50,7 @@ function Login() {
             >
               <Input
                 id="password"
-                type="pasword"
+                type="password"
                 placeholder="Enter your password"
               />
             </Form.Item>

@@ -62,4 +62,15 @@ const userLogin = async (req, res) => {
   }
 };
 
-module.exports = { userRegister, userLogin };
+const getCurrentUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.body.userId).select("-password");
+    res.send({
+      success: true,
+      data: user,
+      message: "You are authorized to go to the protected Routes!",
+    });
+  } catch (error) {}
+};
+
+module.exports = { userRegister, userLogin, getCurrentUser };
