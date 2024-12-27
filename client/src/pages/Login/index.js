@@ -2,13 +2,19 @@ import React from "react";
 import { Button, Form, Input, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginUser } from "../../api/users";
-// import { axiosInstance } from "../../api";
+import { useDispatch } from "react-redux";
+import { ShowLoading, HideLoading, Spinner } from "../../redux/loaderSlice";
 
 function Login() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const onFinish = async (values) => {
     try {
+      dispatch(ShowLoading()); // Show spinner
       const response = await LoginUser(values);
+      dispatch(HideLoading()); // Hide spinner
+
       if (response.success) {
         console.log(response.message);
         message.success(response.message);
@@ -19,12 +25,15 @@ function Login() {
         message.error(response.message);
       }
     } catch (error) {
+      dispatch(HideLoading()); // Ensure spinner is hidden on error
       console.log(error);
       message.error(error.message);
     }
   };
+
   return (
     <>
+      <Spinner /> {/* Spinner is conditionally rendered based on Redux state */}
       <main className="App-header">
         <h1>Login to Book My Show</h1>
         <section className="mw-500 text-center px-3">

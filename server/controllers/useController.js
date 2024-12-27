@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const cookie = require("cookie-parser");
+
 // Registering a user
 
 const userRegister = async (req, res) => {
@@ -23,7 +24,7 @@ const userRegister = async (req, res) => {
     return res.status(500).send(error.message);
   }
 };
-
+//user login
 const userLogin = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
@@ -61,7 +62,7 @@ const userLogin = async (req, res) => {
     });
   }
 };
-
+// get current user
 const getCurrentUser = async (req, res) => {
   try {
     const user = await User.findById(req.body.userId).select("-password");

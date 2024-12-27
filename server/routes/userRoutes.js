@@ -13,6 +13,7 @@ userRouter.post("/register", userRegister);
 //login
 userRouter.post("/login", userLogin);
 
+//get current user
 userRouter.get("/get-current-user", auth, getCurrentUser);
 
 module.exports = userRouter;
