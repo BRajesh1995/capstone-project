@@ -1,4 +1,3 @@
-import React, { Children } from "react";
 import { Tabs } from "antd";
 import MovieList from "./MovieList";
 import TheatresTable from "./TheatresTable";

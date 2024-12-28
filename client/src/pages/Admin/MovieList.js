@@ -9,30 +9,30 @@ import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import moment from "moment";
 
 function MovieList() {
-  const FakeMovies = [
-    {
-      key: "1",
-      poster: "Image1",
-      title: "Moana 2",
-      description:
-        "Moana 2 is an upcoming American 3D computer-animated musical fantasy ",
-      duration: 120,
-      genre: "Animation",
-      language: "English",
-      releaseDate: "2024-12-01",
-    },
-    {
-      key: "2",
-      poster: "Image2",
-      title: "Pushpa 2",
-      description:
-        "Pushpa 2 is an upcoming Indian Telugu-language action thriller film ",
-      duration: 120,
-      genre: "Action",
-      language: "Telugu",
-      releaseDate: "2024-12-05",
-    },
-  ];
+  // const FakeMovies = [
+  //   {
+  //     key: "1",
+  //     poster: "Image1",
+  //     title: "Moana 2",
+  //     description:
+  //       "Moana 2 is an upcoming American 3D computer-animated musical fantasy ",
+  //     duration: 120,
+  //     genre: "Animation",
+  //     language: "English",
+  //     releaseDate: "2024-12-01",
+  //   },
+  //   {
+  //     key: "2",
+  //     poster: "Image2",
+  //     title: "Pushpa 2",
+  //     description:
+  //       "Pushpa 2 is an upcoming Indian Telugu-language action thriller film ",
+  //     duration: 120,
+  //     genre: "Action",
+  //     language: "Telugu",
+  //     releaseDate: "2024-12-05",
+  //   },
+  // ];
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -49,6 +49,7 @@ function MovieList() {
         return (
           <img
             src={data.poster}
+            alt="poster"
             height="115"
             width="75"
             style={{ objectFit: "cover" }}
